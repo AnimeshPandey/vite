@@ -257,6 +257,7 @@ test('resolve non-normalized absolute path', async () => {
 test('resolve percent-encoded specifiers', async () => {
   expect(await page.textContent('.encoded-percent')).toMatch('[success]')
   expect(await page.textContent('.encoded-space')).toMatch('[success]')
+  expect(await page.textContent('.encoded-query')).toMatch('[success]')
 })
 
 test('resolve specifier matching a file name with a literal percent escape', async () => {

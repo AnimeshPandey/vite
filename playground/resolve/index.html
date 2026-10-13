@@ -187,6 +187,7 @@
 <p class="encoded-percent">fail</p>
 <p class="encoded-space">fail</p>
 <p class="encoded-literal">fail</p>
+<p class="encoded-query">fail</p>
 
 <h2>utf8-bom-package</h2>
 <p class="utf8-bom-package">fail</p>
@@ -433,9 +434,14 @@
   import encodedPercent from './encoded/100%25.js'
   import encodedSpace from './encoded/with%20space.js'
   import encodedLiteral from './encoded/50%25.js'
+  import encodedQuery from './encoded/with%20space.js?raw'
   text('.encoded-percent', encodedPercent)
   text('.encoded-space', encodedSpace)
   text('.encoded-literal', encodedLiteral)
+  text(
+    '.encoded-query',
+    encodedQuery.startsWith('export default') ? '[success]' : 'fail',
+  )
 
   import { msg as utf8BomPackage } from '@vitejs/test-utf8-bom-package'
   text('.utf8-bom-package', utf8BomPackage)
